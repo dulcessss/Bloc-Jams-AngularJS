@@ -33,6 +33,24 @@ var setSong = function(song){
   currentSong = song;
 };
 
+  /**
+  * @function playSong
+  * @desc Plays a song
+  * @param {Object} song
+  */
+
+var playSong = function(song) {
+  currentBuzzObject.play();
+  song.playing = true;
+};
+
+/**
+* @function play
+* @desc plays current or new song
+* @param {Object} song
+*/
+
+
 SongPlayer.play = function(song) {
     if(currentSong !== song){
 
@@ -40,12 +58,20 @@ SongPlayer.play = function(song) {
       setSong(song);
     currentBuzzObject.play();
     song.playing = true;
+
   }else if(currentSong === song){
     if (currentBuzzObject.isPaused()) {
       currentBuzzObject.play();
     }
   }
 };
+
+/**
+* @function pause
+* @desc pauses current song
+* @param {Object} song
+*/
+
 
 SongPlayer.pause = function(song) {
   currentBuzzObject.pause();
