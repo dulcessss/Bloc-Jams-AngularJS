@@ -53,15 +53,16 @@ var playSong = function(song) {
 
 SongPlayer.play = function(song) {
     if(currentSong !== song){
-
-
       setSong(song);
-    currentBuzzObject.play();
-    song.playing = true;
+      playSong(song);
+    //currentBuzzObject.play();
+  //  song.playing = true;
 
   }else if(currentSong === song){
     if (currentBuzzObject.isPaused()) {
-      currentBuzzObject.play();
+      playSong(song);
+
+      //currentBuzzObject.play();
     }
   }
 };
