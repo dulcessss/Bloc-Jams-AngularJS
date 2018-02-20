@@ -47,6 +47,17 @@ var playSong = function(song) {
   song.playing = true;
 };
 
+/**
+* @function stopSong
+* @desc Stops a song from playing
+* @param {Object} song
+*/
+
+var stopSong = function(song) {
+  currentBuzzObject.stop();
+  song.playing = null;
+};
+
         /**
         * @function getSongIndex
         * @desc Gets index of song in the songs array
@@ -114,16 +125,32 @@ SongPlayer.previous = function() {
   currentSongIndex--;
 
   if(currentSongIndex < 0){
-    currentBuzzObject.stop();
-    SongPlayer.currentSong.playing = null;
+    stopSong(SongPlayer.currentSong);
   }else{
     var song = currentAlbum.songs[currentSongIndex];
     setSong(song);
     playSong(song);
   }
 };
+  /**
+  * @function next
+  * @desc sets the next song in the album
+  */
 
+SongPlayer.next = function (){
+  var currentSongIndex = getSongIndex(SongPlayer.currentSong);
+  currentSongIndex++;
 
+  var lastSongIndex = currentAlbum.songs.length - 1;
+
+  if (currentSongIndex > lastSongIndex){
+    stopSong(SongPlayer.currentSong);
+  }else{
+    var song = currentAlbum.songs[currentSongIndex];
+    setSong(song);
+    playSong(song);
+  }
+};
 
 
 
