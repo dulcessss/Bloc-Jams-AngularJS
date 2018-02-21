@@ -87,7 +87,7 @@ SongPlayer.currentSong = null;
 
 SongPlayer.play = function(song) {
     song = song || SongPlayer.currentSong;
-    if(SongPlayer.currentSong = null; !== song){
+    if(SongPlayer.currentSong !== song){
       setSong(song);
       playSong(song);
     //currentBuzzObject.play();
