@@ -64,7 +64,7 @@ attributes.$observe('max', function(newValue){
 
           var notifyOnChange = function(newValue){
             if (typeof scope.onChange === 'function') {
-              scope.onChange({value: newValue});
+              scope.onChange({ value: newValue });
             }
           };
 
